@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClothingForDocuSign.ConsoleView", "ClothingForDocuSign\ClothingForDocuSign.ConsoleView.csproj", "{F70C3041-0E16-4718-97C7-E1CF4BDB4B58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClothingForDocuSign.Domain.UnitTests", "ClothingForDocuSign.UnitTests\ClothingForDocuSign.Domain.UnitTests.csproj", "{302C83DA-346D-4995-9337-15132B4101FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClothingForDocuSign.Domain", "ClothingForDocuSign.Domain\ClothingForDocuSign.Domain.csproj", "{630B50B5-A331-44F2-9A10-F41F81875192}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClothingForDocuSign.ConsoleView.UnitTests", "ClothingForDocuSign.Console.UnitTests\ClothingForDocuSign.ConsoleView.UnitTests.csproj", "{EFE10EFE-1220-484F-B8C0-54D80C4603BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F70C3041-0E16-4718-97C7-E1CF4BDB4B58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F70C3041-0E16-4718-97C7-E1CF4BDB4B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F70C3041-0E16-4718-97C7-E1CF4BDB4B58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F70C3041-0E16-4718-97C7-E1CF4BDB4B58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{302C83DA-346D-4995-9337-15132B4101FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{302C83DA-346D-4995-9337-15132B4101FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{302C83DA-346D-4995-9337-15132B4101FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{302C83DA-346D-4995-9337-15132B4101FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{630B50B5-A331-44F2-9A10-F41F81875192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{630B50B5-A331-44F2-9A10-F41F81875192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{630B50B5-A331-44F2-9A10-F41F81875192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{630B50B5-A331-44F2-9A10-F41F81875192}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFE10EFE-1220-484F-B8C0-54D80C4603BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFE10EFE-1220-484F-B8C0-54D80C4603BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFE10EFE-1220-484F-B8C0-54D80C4603BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFE10EFE-1220-484F-B8C0-54D80C4603BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
