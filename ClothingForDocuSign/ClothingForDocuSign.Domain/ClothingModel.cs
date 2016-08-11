@@ -21,8 +21,6 @@ namespace ClothingForDocuSign.Domain
 			if (clothingCommandRepository == null || clothingRules == null)
 				throw new ArgumentNullException("ClothingCommandRepository and clothingRules should not be NULL.");
 
-			//var clothingRules = GetClothingRules();
-
 			_clothingRules = clothingRules;
 			_clothingCommandRepository = clothingCommandRepository;
 		}

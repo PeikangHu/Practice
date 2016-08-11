@@ -33,6 +33,8 @@ namespace ClothingForDocuSign.UnitTests.Infrastructure.IdentityObject
 			Assert.IsFalse(identityUsingIntObject1 != identityUsingIntObject2);
 			Assert.IsTrue(identityUsingIntObject1.Equals(identityUsingIntObject2));
 			Assert.IsTrue(identityUsingIntObject1.Equals((object)identityUsingIntObject2));
+			Assert.IsFalse(identityUsingIntObject1.Equals((object)null));
+			Assert.IsFalse(identityUsingIntObject1.Equals(null));
 		}
 
 		[TestMethod]

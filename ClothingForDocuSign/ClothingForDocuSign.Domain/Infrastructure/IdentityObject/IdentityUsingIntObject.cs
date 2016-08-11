@@ -25,17 +25,21 @@ namespace ClothingForDocuSign.Domain.Infrastructure.IdentityObject
 
 		public override bool Equals(object obj)
 		{
-			var p = obj as IdentityUsingIntObject;
-			if (p == null)
+			if (obj == null)
 			{
 				return false;
 			}
+			var p = obj as IdentityUsingIntObject;
 			// Return true if the fields match:
 			return ID == p.ID;
 		}
 
 		public bool Equals(IdentityUsingIntObject identityUsingIntObject)
 		{
+			if (identityUsingIntObject == null)
+			{
+				return false;
+			}
 			return ID == identityUsingIntObject.ID;
 		}
 

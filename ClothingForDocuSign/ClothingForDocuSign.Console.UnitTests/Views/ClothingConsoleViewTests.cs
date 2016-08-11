@@ -159,7 +159,7 @@ namespace ClothingForDocuSign.Console.UnitTests.Views
 
 			// Assert
 			Assert.AreEqual(true, clothingConsoleView.IsFailed);
-			Assert.AreEqual("Test, Fail\n", outputActual);
+			Assert.AreEqual("Test, fail\n", outputActual);
 		}
 
 		[TestMethod]

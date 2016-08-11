@@ -65,6 +65,7 @@ namespace ClothingForDocuSign.Console.UnitTests
 			controller.Start();
 
 			// Assert - Index: 1, 3, 5, 7, 9, 11, 13, 15
+			// please add "\n" to each result.
 			Assert.AreEqual("Removing PJs, shorts, t-shirt, sun visor, sandals, leaving house\n", outputsActual[1]);
 			Assert.AreEqual("Removing PJs, pants, socks, shirt, hat, jacket, boots, leaving house\n", outputsActual[3]);
 			Assert.AreEqual("Removing PJs, shorts, fail\n", outputsActual[5]);
