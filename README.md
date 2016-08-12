@@ -1,2 +1,2 @@
 # Practice
-This combines all my practice projects.
+This includes all my practice projects.
