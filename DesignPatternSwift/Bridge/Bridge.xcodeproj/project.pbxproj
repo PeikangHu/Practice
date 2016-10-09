@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1DFEA1141DA198DA00E16437 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFEA1131DA198DA00E16437 /* main.swift */; };
+		1DFEA11B1DA19AAA00E16437 /* Comms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFEA11A1DA19AAA00E16437 /* Comms.swift */; };
+		1DFEA11D1DA19CEF00E16437 /* Channels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFEA11C1DA19CEF00E16437 /* Channels.swift */; };
+		1DFEA11F1DA1BAD600E16437 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFEA11E1DA1BAD600E16437 /* Messages.swift */; };
+		1DFEA1211DA1CB5700E16437 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFEA1201DA1CB5700E16437 /* Bridge.swift */; };
+		1DFEA1231DA1F4D900E16437 /* NewFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFEA1221DA1F4D900E16437 /* NewFeatures.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +30,11 @@
 /* Begin PBXFileReference section */
 		1DFEA1101DA198DA00E16437 /* Bridge */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Bridge; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DFEA1131DA198DA00E16437 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		1DFEA11A1DA19AAA00E16437 /* Comms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comms.swift; sourceTree = "<group>"; };
+		1DFEA11C1DA19CEF00E16437 /* Channels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channels.swift; sourceTree = "<group>"; };
+		1DFEA11E1DA1BAD600E16437 /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		1DFEA1201DA1CB5700E16437 /* Bridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
+		1DFEA1221DA1F4D900E16437 /* NewFeatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatures.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,11 @@
 			isa = PBXGroup;
 			children = (
 				1DFEA1131DA198DA00E16437 /* main.swift */,
+				1DFEA11A1DA19AAA00E16437 /* Comms.swift */,
+				1DFEA11C1DA19CEF00E16437 /* Channels.swift */,
+				1DFEA11E1DA1BAD600E16437 /* Messages.swift */,
+				1DFEA1201DA1CB5700E16437 /* Bridge.swift */,
+				1DFEA1221DA1F4D900E16437 /* NewFeatures.swift */,
 			);
 			path = Bridge;
 			sourceTree = "<group>";
@@ -120,7 +135,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DFEA1211DA1CB5700E16437 /* Bridge.swift in Sources */,
+				1DFEA11D1DA19CEF00E16437 /* Channels.swift in Sources */,
+				1DFEA11F1DA1BAD600E16437 /* Messages.swift in Sources */,
 				1DFEA1141DA198DA00E16437 /* main.swift in Sources */,
+				1DFEA11B1DA19AAA00E16437 /* Comms.swift in Sources */,
+				1DFEA1231DA1F4D900E16437 /* NewFeatures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

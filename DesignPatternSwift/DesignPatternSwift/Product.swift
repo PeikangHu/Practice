@@ -44,7 +44,7 @@ class Product: NSObject, NSCopying
     }
     
     
-    private(set) var price:Double
+    fileprivate(set) var price:Double
     {
         get { return priceBackingValue }
         set { priceBackingValue = max(1, newValue) }
@@ -52,7 +52,8 @@ class Product: NSObject, NSCopying
     
     var stockValue:Double
     {
-        get { return (price * (1 + salesTaxRate)) * Double(stockLevel) }
+        //get { return (price * (1 + salesTaxRate)) * Double(stockLevel) }
+        get { return price * Double(stockLevel) }
     }
     
     func copy(with zone: NSZone? = nil) -> Any {
@@ -61,11 +62,18 @@ class Product: NSObject, NSCopying
                        stockLevel: self.stockLevel)
     }
     
+    /*
     var upsells:[UpsellOpportunities]
     {
         get { return Array() }
+    }*/
+    
+    class func createProduct(name:String, description:String, category:String, price:Double, stockLevel:Int) -> Product
+    {
+        return Product(name: name, description: description, category: category, price: price, stockLevel: stockLevel)
     }
     
+    /*
     class func createProduct(name:String, description:String, category:String, price:Double, stockLevel:Int) -> Product
     {
         var productType:Product.Type
@@ -78,9 +86,31 @@ class Product: NSObject, NSCopying
         }
         
         return productType.init(name: name, description: description, category: category, price:price, stockLevel:stockLevel)
+    }*/
+}
+
+// Start: Composite Class
+class ProductComposite:Product
+{
+    private let products:[Product]
+    
+    required init(name: String, description: String, category: String, price: Double, stockLevel: Int) {
+        fatalError("Not implemented")
+    }
+    
+    init(name: String, description: String, category: String, stockLevel: Int, products:Product...) {
+        self.products = products
+        super.init(name: name, description: description, category: category, price: 0, stockLevel: stockLevel)
+    }
+    
+    override var price:Double
+    {
+        get { return products.reduce(0, {(total, p) in return total + p.price}) }
+        set { /* do nothing */ }
     }
 }
 
+/*
 enum UpsellOpportunities
 {
     case SwimmingLessons
@@ -117,5 +147,6 @@ class SoccerProduct:Product
         return [UpsellOpportunities.SoccerVideos]
     }
 }
+ */
 
 

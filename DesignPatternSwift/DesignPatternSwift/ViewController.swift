@@ -38,24 +38,27 @@ class ViewController: UIViewController, UITableViewDataSource
         
         displayStockTotal()
         
-        productStore.callback =
+        // This is the bridge pattern
+        let bridge = EventBridge(callback: updateStockLevel)
+        
+        productStore.callback = bridge.inputCallback
+    }
+    
+    func updateStockLevel(name:String, level:Int)
+    {
+        for cell in self.tableView.visibleCells
         {
-            (p:Product) in
-            
-            for cell in self.tableView.visibleCells
+            if let pcell = cell as? ProductTableCell
             {
-                if let pcell = cell as? ProductTableCell
+                if pcell.product?.name == name
                 {
-                    if pcell.product?.name == p.name
-                    {
-                        pcell.stockStepper.value = Double(p.stockLevel)
-                        pcell.stockField.text = String(p.stockLevel)
-                    }
+                    pcell.stockStepper.value = Double(level)
+                    pcell.stockField.text = String(level)
                 }
             }
-            
-            self.displayStockTotal()
         }
+        
+        self.displayStockTotal()
     }
     
     override func didReceiveMemoryWarning() {
@@ -77,6 +80,8 @@ class ViewController: UIViewController, UITableViewDataSource
         cell.descriptionLabel.text = product.productDescription
         cell.stockStepper.value = Double(product.stockLevel)
         cell.stockField.text = String(product.stockLevel)
+        
+        CellFormatter.createChain().formatCell(cell: cell)
         
         return cell
         
@@ -108,6 +113,8 @@ class ViewController: UIViewController, UITableViewDataSource
                         cell.stockStepper.value = Double(product.stockLevel)
                         cell.stockField.text  = String(product.stockLevel)
                         logger.logItem(item: product)
+                        
+                        StockServerFactory.getStockServer().setStockLevel(product: product.name, stockLevel: product.stockLevel)
                     }
                     
                     break
@@ -127,10 +134,14 @@ class ViewController: UIViewController, UITableViewDataSource
                                                                 totals.1 + product.stockValue)
                                                         })
         
+        let formatted = StockTotalFacade.formatCurrencyAmount(amount: finalTotals.1,
+                                                              currency: StockTotalFacade.Currency.EUR)
+        
+        /* This code turns into facade
         let factory = StockTotalFactory.getFactory(curr: StockTotalFactory.Currency.EUR)
         let totalAmount = factory.converter?.convertTotal(total: finalTotals.1)
         let formatted = factory.formatter?.formatTotal(total: totalAmount!)
-        
+        */
         
         
         
