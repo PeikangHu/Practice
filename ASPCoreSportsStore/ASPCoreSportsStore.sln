@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B6E1A132-4234-4CD7-8FBB-5793E8FE62B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{56E52B45-39F5-4CFA-92CB-0B01C331F791}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ASPCoreSportsStore", "src\ASPCoreSportsStore\ASPCoreSportsStore.xproj", "{9DAAC31C-885E-42EF-8A05-BF6AF0D722E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1C4505D5-EB46-4F7E-963B-19C940476169}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ASPCoreSportsStore.Tests", "ASPCoreSportsStore.Tests\ASPCoreSportsStore.Tests.xproj", "{B15AEB9D-13A3-4403-91D8-9E4D3D41683F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9DAAC31C-885E-42EF-8A05-BF6AF0D722E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DAAC31C-885E-42EF-8A05-BF6AF0D722E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DAAC31C-885E-42EF-8A05-BF6AF0D722E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DAAC31C-885E-42EF-8A05-BF6AF0D722E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B15AEB9D-13A3-4403-91D8-9E4D3D41683F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B15AEB9D-13A3-4403-91D8-9E4D3D41683F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B15AEB9D-13A3-4403-91D8-9E4D3D41683F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B15AEB9D-13A3-4403-91D8-9E4D3D41683F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9DAAC31C-885E-42EF-8A05-BF6AF0D722E4} = {B6E1A132-4234-4CD7-8FBB-5793E8FE62B2}
+		{B15AEB9D-13A3-4403-91D8-9E4D3D41683F} = {1C4505D5-EB46-4F7E-963B-19C940476169}
+	EndGlobalSection
+EndGlobal
