@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ASPCoreSportsStore.Models;
 using ASPCoreSportsStore.Infrastructure;
+using ASPCoreSportsStore.Models.ViewModels;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,9 +16,23 @@ namespace ASPCoreSportsStore.Controllers
     {
 		private IProductRepository repository;
 
-		public CartController(IProductRepository repo)
+		// By using dependency injection, so it will use SessionCart
+		private Cart cart;
+
+		
+		public CartController(IProductRepository repo, Cart cartService)
 		{
 			repository = repo;
+			cart = cartService;
+		}
+
+		public ViewResult Index(string returnUrl)
+		{
+			return View(new CartIndexViewModel
+							{
+								Cart = cart,
+								ReturnUrl = returnUrl
+							});
 		}
 
 		public RedirectToActionResult AddToCart(int productId, string returnUrl)
@@ -26,9 +41,7 @@ namespace ASPCoreSportsStore.Controllers
 
 			if (product != null)
 			{
-				var cart = GetCart();
 				cart.AddItem(product, 1);
-				SaveCart(cart);
 			}
 
 			return RedirectToAction("Index", new { returnUrl });
@@ -40,23 +53,10 @@ namespace ASPCoreSportsStore.Controllers
 
 			if (product != null)
 			{
-				var cart = GetCart();
 				cart.RemoveLine(product);
-				SaveCart(cart);
 			}
 
-			return RedirectToAction("Index", new { returnUrl  });
-		}
-
-		private Cart GetCart()
-		{
-			var cart = HttpContext.Session.GetJson<Cart>("Cart") ?? new Cart();
-			return cart;
-		}
-
-		private void SaveCart(Cart cart)
-		{
-			HttpContext.Session.setJson("Cart", cart);
+			return RedirectToAction("Index", new { returnUrl });
 		}
     }
 }

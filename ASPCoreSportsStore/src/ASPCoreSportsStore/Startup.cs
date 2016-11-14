@@ -34,12 +34,20 @@ namespace ASPCoreSportsStore
 
 			services.AddTransient<IProductRepository, EFProductRepository>();
 
+			// The same object should be used to satisfy related requests for Cart instances.
+			// Rather than provide the AddScoped method with a type mapping, as I did for the repository.
+			// The lambda expression receives the collection of services that have been registered and passes the collection to the GetCart method of the SessionCart class.
+			services.AddScoped(sp => SessionCart.GetCart(sp));
+			services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+			services.AddTransient<IOrderRepository, EFOrderRepository>();
+
 			services.AddMvc();
 			services.AddMemoryCache();
 			services.AddSession();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // This method gets called by the ru ntime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole();
