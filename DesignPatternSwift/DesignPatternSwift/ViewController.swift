@@ -15,7 +15,26 @@ class ProductTableCell: UITableViewCell
     @IBOutlet weak var stockStepper: UIStepper!
     @IBOutlet weak var stockField: UITextField!
     
-    var product:Product?;
+    var product:Product?
+    
+    required init(coder aDecoder:NSCoder)
+    {
+        super.init(coder: aDecoder)!
+        
+        NotificationCenter.default.addObserver(self, selector: Selector(("handleStockLevelUpdate:")), name: Notification.Name("stockUpdate"), object: nil)
+    }
+    
+    func handleStockLevelUpdate(notification:NSNotification)
+    {
+        if let updatedProduct = notification.object as? Product
+        {
+            if updatedProduct.name == self.product?.name
+            {
+                stockStepper.value = Double(updatedProduct.stockLevel)
+                stockField.text = String(updatedProduct.stockLevel)
+            }
+        }
+    }
 }
 
 var handler =
@@ -86,8 +105,8 @@ class ViewController: UIViewController, UITableViewDataSource
         cell.product = product
         cell.nameLabel.text = product.name
         cell.descriptionLabel.text = product.productDescription
-        cell.stockStepper.value = Double(product.stockLevel)
-        cell.stockField.text = String(product.stockLevel)
+        //cell.stockStepper.value = Double(product.stockLevel)
+        //cell.stockField.text = String(product.stockLevel)
         
         CellFormatter.createChain().formatCell(cell: cell)
         
@@ -108,7 +127,9 @@ class ViewController: UIViewController, UITableViewDataSource
                     {
                         let dict = NSDictionary(objects: [product.stockLevel], forKeys:[product.name as NSCopying])
                         
-                        undoManager?.registerUndo(withTarget: self, selector: Selector(("undoStockLevel:")), object: dict)
+                        //undoManager?.registerUndo(withTarget: self, selector: Selector(("undoStockLevel:")), object: dict)
+                        
+                        undoManager?.registerUndo(withTarget: self, selector: Selector(("resetState:")), object: nil)
                         
                         
                         if let stepper = sender as? UIStepper
@@ -123,8 +144,8 @@ class ViewController: UIViewController, UITableViewDataSource
                             }
                         }
                         
-                        cell.stockStepper.value = Double(product.stockLevel)
-                        cell.stockField.text  = String(product.stockLevel)
+                        // cell.stockStepper.value = Double(product.stockLevel)
+                        // cell.stockField.text  = String(product.stockLevel)
                         logger.logItem(item: product)
                         
                         StockServerFactory.getStockServer().setStockLevel(product: product.name, stockLevel: product.stockLevel)
@@ -137,6 +158,13 @@ class ViewController: UIViewController, UITableViewDataSource
             displayStockTotal()
         }
     }
+    
+    func resetState()
+    {
+        self.productStore.resetState()
+    }
+    
+    /*
     
     func undoStockLevel(data:[String:Int])
     {
@@ -161,6 +189,8 @@ class ViewController: UIViewController, UITableViewDataSource
         }
         
     }
+ 
+     */
     
     func displayStockTotal()
     {

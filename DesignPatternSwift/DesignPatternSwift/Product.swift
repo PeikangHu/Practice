@@ -40,7 +40,10 @@ class Product: NSObject, NSCopying
     var stockLevel:Int
     {
         get { return stockLevelBackingValue }
-        set { stockLevelBackingValue = max(0, newValue) }
+        set {
+                stockLevelBackingValue = max(0, newValue)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "stockUpdate"), object: self)
+            }
     }
     
     
