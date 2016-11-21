@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ASPCoreSportsStore.Models
 {
-    public class FakeProductRepository:IProductRepository
+    public class FakeProductRepository/*:IProductRepository (because I added the update one.) */
     {
 		public IEnumerable<Product> Products => new List<Product>
 		{
