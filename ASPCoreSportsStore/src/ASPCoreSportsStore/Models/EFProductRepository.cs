@@ -37,5 +37,18 @@ namespace ASPCoreSportsStore.Models
 
 			context.SaveChanges();
 		}
+
+		public Product DeleteProduct(int productID)
+		{
+			var dbEntry = context.Products.FirstOrDefault(p => p.ProductID == productID);
+
+			if (dbEntry != null)
+			{
+				context.Products.Remove(dbEntry);
+				context.SaveChanges();
+			}
+
+			return dbEntry;
+		}
 	}
 }

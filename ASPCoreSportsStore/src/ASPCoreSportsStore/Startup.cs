@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using ASPCoreSportsStore.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace ASPCoreSportsStore
 {
@@ -30,7 +31,12 @@ namespace ASPCoreSportsStore
         public void ConfigureServices(IServiceCollection services)
         {
 			services.AddDbContext<ApplicationDbContext>(options => 
-								options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+								options.UseSqlServer(Configuration["Data:SportStoreProducts:ConnectionString"]));
+
+			services.AddDbContext<ApplicationDbContext>(options => 
+								options.UseSqlServer(Configuration["Data:SportStoreIdentity:ConnectionString"]));
+
+			services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>();
 
 			services.AddTransient<IProductRepository, EFProductRepository>();
 
@@ -60,6 +66,7 @@ namespace ASPCoreSportsStore
 			app.UseStatusCodePages();
 			app.UseStaticFiles();
 			app.UseSession();
+			app.UseIdentity();
 			//app.UseMvcWithDefaultRoute();
 
 			app.UseMvc(routes => {
@@ -89,6 +96,7 @@ namespace ASPCoreSportsStore
 
 			// can run seeddata first.
 			SeedData.EnsurePopulated(app);
+			IdentitySeedData.EnsurePopulated(app);
         }
     }
 }
