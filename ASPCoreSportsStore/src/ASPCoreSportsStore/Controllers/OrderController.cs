@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ASPCoreSportsStore.Models;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,9 +21,11 @@ namespace ASPCoreSportsStore.Controllers
 			cart = cartService;
 		}
 
+		[Authorize]
 		public ViewResult List() => View(repository.Orders.Where(o => !o.Shipped));
 
 		[HttpPost]
+		[Authorize]
 		public IActionResult MarkShipped(int orderID)
 		{
 			var order = repository.Orders.FirstOrDefault(o => o.OrderID == orderID);

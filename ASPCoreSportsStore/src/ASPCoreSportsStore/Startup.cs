@@ -33,7 +33,7 @@ namespace ASPCoreSportsStore
 			services.AddDbContext<ApplicationDbContext>(options => 
 								options.UseSqlServer(Configuration["Data:SportStoreProducts:ConnectionString"]));
 
-			services.AddDbContext<ApplicationDbContext>(options => 
+			services.AddDbContext<AppIdentityDbContext>(options => 
 								options.UseSqlServer(Configuration["Data:SportStoreIdentity:ConnectionString"]));
 
 			services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>();
