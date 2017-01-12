@@ -8,10 +8,10 @@
 			"type": "platform"
 		},
 		"System.Diagnostics.TraceSource": "4.0.0",
-		"xunit": "2.2.0-beta3-build3402",
+		"xunit": "2.2.0-beta4-build3444",
 		"dotnet-test-xunit": "2.2.0-preview2-build1029",
 		"ASPCoreSportsStore": "1.0.0",
-		"moq.netcore": "4.4.0-beta8"
+		"Moq": "4.6.38-alpha"
 	},
 
 	"frameworks": {

@@ -58,12 +58,16 @@ namespace ASPCoreSportsStore
         {
             loggerFactory.AddConsole();
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+			if (env.IsDevelopment())
+			{
+				app.UseDeveloperExceptionPage();
+				app.UseStatusCodePages();
+			}
+			else
+			{
+				app.UseExceptionHandler("/Error");
+			}
 
-			app.UseStatusCodePages();
 			app.UseStaticFiles();
 			app.UseSession();
 			app.UseIdentity();
